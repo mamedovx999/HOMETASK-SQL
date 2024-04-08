@@ -1,0 +1,55 @@
+--DDL (Create, Drop, Truncate, Alter)
+create database PB301
+use PB301
+create table Students
+(
+Id int,
+[Name] nvarchar(20),
+Email varchar(20),
+Point decimal (18,2),
+IsMarried bit
+)
+ALTER TABLE Students ADD  Age int
+ALTER TABLE Students DROP COLUMN Age
+EXEC sp_rename Students,Student
+EXEC sp_rename [Students.Name],AD
+--DML (INSERT,UPDATE,DELETE,SELECT)
+INSERT INTO Students VALUES
+(1,'Nihad','nihad@gmail.com',66.4,0),
+(2,'Memmedeli','memmedeli@gmail.com',66.2,0),
+(3,'Fazil','fazil@gmail.com',66.3,0)
+INSERT INTO  Students (Id,Email,Point) Values
+(4,'aa@gmail.com',66.4),
+(5,'bb@gmail.com',66.8),
+(6,'cc@gmail.com',66,4)
+update Students set [Name]='Filankes' where Id>0
+--DQL
+select * from Students
+select sum(point) TotalPoint from Students
+select min(point) MinimumPoint from Students
+
+--DDL(CREATE,DROP,TRUNCATE,ALTER)
+CREATE DATABASE Department
+USE Department
+CREATE TABLE Employee
+(
+Id int,
+FullName nvarchar (30),
+Age int,
+Email nvarchar (25),
+Salary int 
+)
+INSERT INTO Employee VALUES 
+(1,'Memmedeli',20,'memmedeli16@gmail.com',500),
+(2,'Tehmasib',22,'Lele@gmail.com',800),
+(3,'Huseyn',34,'Huseyn16@gmail.com',200),
+(4,'Akif',30,'Akif16@gmail.com',100)
+
+UPDATE Employee SET [Salary] =650 WHERE Id =1
+
+SELECT * FROM Employee WHERE Salary =500
+
+SELECT FullName, Email ,Salary FROM Employee
+
+
+
